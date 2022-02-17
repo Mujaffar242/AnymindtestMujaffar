@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/peronalInfoFragment">
+
+
+
+    <fragment
+        android:id="@+id/peronalInfoFragment"
+        android:name="com.example.anymindtest.view.fragments.PersonalInfoFragment"
+        android:label="fragment_peronal_info"
+        tools:layout="@layout/fragment_personal_info" >
+
+        <action
+            android:id="@+id/action_peronalInfoFragment_to_workExperienceFragment"
+            app:destination="@id/workExperienceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/workExperienceFragment"
+        android:name="com.example.anymindtest.view.fragments.WorkExperienceFragment"
+        android:label="WorkExperienceFragment" >
+        <action
+            android:id="@+id/action_workExperienceFragment_to_addEditExperienceFragment"
+            app:destination="@id/addEditExperienceFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditExperienceFragment"
+        android:name="com.example.anymindtest.view.fragments.AddEditExperienceFragment"
+        android:label="fragment_add_edit_experience"
+        tools:layout="@layout/fragment_add_edit_experience" />
+
+
+</navigation>
