@@ -17,7 +17,7 @@ import kotlinx.coroutines.withContext
 
 class PersonalInfoViewModel(application: Application):BaseViewModel(application) {
 
-    val imagePath=MutableLiveData<Uri>()
+    val imagePath=MutableLiveData<String>()
 
     val email=MutableLiveData<String>()
 
@@ -32,23 +32,26 @@ class PersonalInfoViewModel(application: Application):BaseViewModel(application)
     val database= getDatabase(application)
 
 
-    val personalInfoModel=MutableLiveData<PersonalInfoModel>()
+    val personalInfoModelLiveData=MutableLiveData<PersonalInfoModel>()
 
 
 
     /*
     * save personal data in room database
     * */
-    fun savePersonalInfo()
+    fun saveUpdatePersonalInfo()
     {
-        val personalInfoModel=PersonalInfoModel(imagePath.value.toString(),email.value!!,mobile.value!!,address.value!!,careerObjective.value!!,yearOfExperience.value!!)
+        val personalInfoModel=PersonalInfoModel(imagePath.value!!,email.value!!,mobile.value!!,address.value!!,careerObjective.value!!,yearOfExperience.value!!)
 
         viewModelScope.launch {
             withContext(Dispatchers.IO)
             {
-                database.personalInfoDAO.insertSinglevalue(personalInfoModel)
+                if (personalInfoModelLiveData.value?.id!=null&&personalInfoModelLiveData.value?.id!!>0)
+                database.personalInfoDAO.update(personalInfoModel)
+                else
+                    database.personalInfoDAO.insertSinglevalue(personalInfoModel)
             }
-          //  navigateToNextScreen.value=true
+           navigateToNextScreen.value=true
         }
     }
 
@@ -67,7 +70,7 @@ class PersonalInfoViewModel(application: Application):BaseViewModel(application)
                 {
                     if(data!=null)
                     {
-                        personalInfoModel.value=data
+                        personalInfoModelLiveData.value=data
                     }
                 }
 
@@ -87,31 +90,44 @@ class PersonalInfoViewModel(application: Application):BaseViewModel(application)
         if(imagePath.value==null)
         {
             errorString.value="Please select image"
+            isValid=false
         }
         else if(email.value.isNullOrEmpty())
         {
             errorString.value="Please enter email"
+            isValid=false
+
         }
         else if(!Patterns.EMAIL_ADDRESS.matcher(email.value).matches())
         {
             errorString.value= "Please valid email"
+            isValid=false
+
 
         }
         else if(mobile.value.isNullOrEmpty())
         {
             errorString.value="Please enter mobile number"
+            isValid=false
+
         }
         else if(address.value.isNullOrEmpty())
         {
             errorString.value="Please enter Residence address"
+            isValid=false
+
         }
         else if(careerObjective.value.isNullOrEmpty())
         {
             errorString.value="Please enter career objective"
+            isValid=false
+
         }
         else if(yearOfExperience.value.isNullOrEmpty())
         {
             errorString.value="Please enter year of experience"
+            isValid=false
+
         }
 
         return isValid
@@ -121,6 +137,9 @@ class PersonalInfoViewModel(application: Application):BaseViewModel(application)
 
     fun onNextClick()
     {
-        savePersonalInfo()
+        if(isDataValid())
+        {
+            saveUpdatePersonalInfo()
+        }
     }
 }

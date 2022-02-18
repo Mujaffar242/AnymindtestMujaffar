@@ -1,8 +1,16 @@
 package com.example.anymindtest.view.fragments
 
+import android.app.Activity
+import android.content.ContentUris
+import android.content.Context
 import android.content.Intent
+import android.database.Cursor
+import android.graphics.BitmapFactory
 import android.net.Uri
 import android.os.Bundle
+import android.provider.DocumentsContract
+import android.provider.DocumentsContract.isDocumentUri
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -12,9 +20,12 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import com.bumptech.glide.Glide
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.FragmentPersonalInfoBinding
+import com.example.anymindtest.utils.ImageFilePath
 import com.example.anymindtest.viewmodel.PersonalInfoViewModel
+import java.io.File
 
 
 class PersonalInfoFragment : Fragment() {
@@ -24,6 +35,7 @@ class PersonalInfoFragment : Fragment() {
     private lateinit var viewModel:PersonalInfoViewModel
 
     val PICK_IMAGE = 1
+
 
 
     override fun onCreateView(
@@ -43,8 +55,18 @@ class PersonalInfoFragment : Fragment() {
             Toast.makeText(activity,it,Toast.LENGTH_LONG).show()
         })
 
-        viewModel.personalInfoModel.observe(this, Observer {
+        viewModel.personalInfoModelLiveData.observe(this, Observer {
+
+
+
+            setImageOnImageView(it.imagePath)
             binding.email.setText(it.email)
+            binding.mobile.setText(it.mobile)
+            binding.address.setText(it.address)
+            binding.carrerObjective.setText(it.careerObjective)
+            binding.yearOfExperience.setText(it.yearOfExperience)
+
+
         })
 
 
@@ -61,20 +83,43 @@ class PersonalInfoFragment : Fragment() {
 
     fun pickImageFromGalley()
     {
+
+
+
         val intent = Intent()
         intent.type = "image/*"
         intent.action = Intent.ACTION_GET_CONTENT
-        startActivityForResult(Intent.createChooser(intent, "Select Picture"), PICK_IMAGE)
+        startActivityForResult(Intent.createChooser(intent, "select a picture"), PICK_IMAGE)
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if(data!=null)
         {
-            val selectedImage: Uri = data.getData()!!
-            viewModel.imagePath.value=selectedImage
-            binding.pickImage.setImageURI(selectedImage)
+          //  val selectedImage: Uri = data.getData()!!
+
+
+            setImageOnImageView(ImageFilePath.getPath(activity, data.getData()))
 
         }
     }
+
+
+
+
+    fun setImageOnImageView(imagePath:String)
+    {
+        viewModel.imagePath.value=imagePath
+        binding.pickImage.setImageURI(Uri.parse(imagePath))
+
+
+        /*Glide.with(activity as Activity)
+            .load(File(imagePath))
+            .into(binding.pickImage)*/;
+    }
+
+
+
+
+
 }

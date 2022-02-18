@@ -9,6 +9,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.anymindtest.database.getDatabase
+import com.example.anymindtest.model.EducationModel
 import com.example.anymindtest.model.PersonalInfoModel
 import com.example.anymindtest.model.WorkExperienceModel
 import com.example.anymindtest.repository.ResumeDataRepository
@@ -16,36 +17,35 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 
-class AddWorkExperienceViewModel(application: Application):BaseViewModel(application) {
+class AddEducationViewModel(application: Application):BaseViewModel(application) {
 
-    val companyName=MutableLiveData<String>()
+    val className=MutableLiveData<String>()
 
-    val startDate=MutableLiveData<String>()
+    val passingYear=MutableLiveData<String>()
 
-    val endDate=MutableLiveData<String>()
+    val percentage=MutableLiveData<String>()
 
-    val isCurrentRole=MutableLiveData<Boolean>()
 
     val database= getDatabase(application)
 
-    val workExperienceLiveData=MutableLiveData<WorkExperienceModel>()
+    val educationModelLiveData=MutableLiveData<EducationModel>()
 
 
 
     /*
-   * save experiene data into local database
+   * save education data into local database
    * */
     fun saveUpdateEducationInfo()
     {
-        val experienceModel=WorkExperienceModel(companyName.value!!,startDate.value!!,endDate.value!!)
+        val educationModel=EducationModel(className.value!!,passingYear.value!!,percentage.value!!)
 
         viewModelScope.launch {
             withContext(Dispatchers.IO)
             {
-                if (workExperienceLiveData.value?.id!=null&&workExperienceLiveData.value?.id!!>0)
-                    database.workExperienceDAO.update(experienceModel)
+                if (educationModelLiveData.value?.id!=null&&educationModelLiveData.value?.id!!>0)
+                    database.educationDAO.update(educationModel)
                 else
-                    database.workExperienceDAO.insertSinglevalue(experienceModel)
+                    database.educationDAO.insertSinglevalue(educationModel)
             }
             navigateToNextScreen.value=true
         }
@@ -55,18 +55,18 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
     /*
     * get data from room database
     * */
-    fun getWorkExperienceData(id:Int)
+    fun getWorkEducationData(id:Int)
     {
         viewModelScope.launch {
 
             withContext(Dispatchers.IO)
             {
-                val data=database.workExperienceDAO.getSingleValue(id.toString())
+                val data=database.educationDAO.getSingleValue(id.toString())
                 withContext(Dispatchers.Main)
                 {
                     if(data!=null)
                     {
-                        workExperienceLiveData.value=data
+                        educationModelLiveData.value=data
                     }
                 }
 
@@ -83,19 +83,19 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
     fun isDataValid():Boolean{
         var isValid=true
 
-        if(companyName.value.isNullOrEmpty())
+        if(className.value.isNullOrEmpty())
         {
-            errorString.value="Please enter company name"
+            errorString.value="Please enter class name"
             isValid=false
         }
-        else if(startDate.value.isNullOrEmpty())
+        else if(passingYear.value.isNullOrEmpty())
         {
-            errorString.value="Please enter start date"
+            errorString.value="Please passing year"
             isValid=false
         }
-        else if(isCurrentRole.value!=null&&!isCurrentRole.value!!&&endDate.value.isNullOrEmpty())
+        else if(percentage.value.isNullOrEmpty())
         {
-            errorString.value="Please enter end date"
+            errorString.value="Please enter percentage"
             isValid=false
         }
 
@@ -111,10 +111,7 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
         if (isDataValid())
         {
             viewModelScope.launch {
-                withContext(Dispatchers.IO)
-                {
-                    saveUpdateEducationInfo()
-                }
+                saveUpdateEducationInfo()
             }
             navigateToNextScreen.value=true
         }

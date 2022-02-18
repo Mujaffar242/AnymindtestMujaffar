@@ -18,7 +18,7 @@ interface WorkExperienceDAO {
     fun getSingleValue(id:String):WorkExperienceModel
 
 
-    @Query("select * from workexperiencemodel")
+    @Query("SELECT * FROM workexperiencemodel")
     fun getAllWorkExperience():LiveData<List<WorkExperienceModel>>
 
     /*

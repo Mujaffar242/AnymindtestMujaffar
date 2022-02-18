@@ -21,33 +21,43 @@ class AddEditExperienceFragment : Fragment() {
 
     private lateinit var viewModel: AddWorkExperienceViewModel
 
-    val PICK_IMAGE = 1
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= DataBindingUtil.inflate(inflater, R.layout.fragment_add_edit_experience,container,false)
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_add_edit_experience,
+            container,
+            false
+        )
 
-        viewModel= ViewModelProviders.of(this).get(AddWorkExperienceViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(AddWorkExperienceViewModel::class.java)
 
-        binding.addworkExperienceViewModel=viewModel
+        binding.addworkExperienceViewModel = viewModel
 
 
         viewModel.errorString.observe(this, Observer {
-            Toast.makeText(activity,it, Toast.LENGTH_LONG).show()
+            Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
 
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            findNavController().navigate(R.id.action_peronalInfoFragment_to_workExperienceFragment)
+            //  findNavController().navigate(R.id.action_peronalInfoFragment_to_workExperienceFragment)
+        })
+
+        viewModel.workExperienceLiveData.observe(this, Observer {
+
+            viewModel.companyName.value = it.company
+            viewModel.startDate.value = it.startDate
+            viewModel.endDate.value = it.endDate
+
         })
 
 
         return binding.root
     }
-
 
 
 }
