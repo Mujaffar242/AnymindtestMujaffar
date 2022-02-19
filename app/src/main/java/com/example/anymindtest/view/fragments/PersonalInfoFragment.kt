@@ -71,7 +71,11 @@ class PersonalInfoFragment : Fragment() {
 
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            findNavController().navigate(R.id.action_peronalInfoFragment_to_workExperienceFragment)
+            if(it)
+            {
+                findNavController().navigate(R.id.action_peronalInfoFragment_to_workExperienceFragment)
+                viewModel.resetNavigateToNextScreen()
+            }
         })
 
         binding.pickImage.setOnClickListener {

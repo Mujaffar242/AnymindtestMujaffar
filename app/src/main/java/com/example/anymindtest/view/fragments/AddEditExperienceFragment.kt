@@ -44,7 +44,7 @@ class AddEditExperienceFragment : Fragment() {
 
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            //  findNavController().navigate(R.id.action_peronalInfoFragment_to_workExperienceFragment)
+              findNavController().popBackStack()
         })
 
         viewModel.workExperienceLiveData.observe(this, Observer {

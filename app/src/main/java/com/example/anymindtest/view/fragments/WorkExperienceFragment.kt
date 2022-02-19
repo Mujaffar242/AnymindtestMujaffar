@@ -47,7 +47,6 @@ class WorkExperienceFragment : Fragment() {
             findNavController().popBackStack()
         })
 
-        viewModel.getWorkExperieceData()
 
 
         return binding.root

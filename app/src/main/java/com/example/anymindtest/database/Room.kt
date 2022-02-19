@@ -11,10 +11,11 @@ import com.example.anymindtest.model.WorkExperienceModel
 
 @Database(entities = [PersonalInfoModel::class,EducationModel::class,WorkExperienceModel::class,ProjectModel::class], version = 1,exportSchema = false)
 abstract class ResumeDataDataBase : RoomDatabase() {
+    abstract val workExperienceDAO:WorkExperienceDAO
     abstract val personalInfoDAO: PersonalInfoDAO
     abstract val educationDAO:EducationDAO
     abstract val projectDAO:ProjectDAO
-    abstract val workExperienceDAO:WorkExperienceDAO
+
 }
 
 private lateinit var INSTANCE: ResumeDataDataBase

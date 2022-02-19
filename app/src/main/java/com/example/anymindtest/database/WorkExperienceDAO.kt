@@ -11,15 +11,14 @@ import com.example.anymindtest.model.WorkExperienceModel
 @Dao
 interface WorkExperienceDAO {
 
+    @Query("SELECT * FROM WorkExperienceModel")
+    fun getAllWorkExperience():LiveData<List<WorkExperienceModel>>
+
     @Insert()
     fun insertSinglevalue(workExperienceModel: WorkExperienceModel)
 
     @Query("SELECT * FROM workExperienceModel WHERE id = :id")
     fun getSingleValue(id:String):WorkExperienceModel
-
-
-    @Query("SELECT * FROM workexperiencemodel")
-    fun getAllWorkExperience():LiveData<List<WorkExperienceModel>>
 
     /*
    *for update database model single row

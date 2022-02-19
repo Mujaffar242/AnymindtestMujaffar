@@ -115,8 +115,8 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
                 {
                     saveUpdateEducationInfo()
                 }
+               // navigateToNextScreen.value=true
             }
-            navigateToNextScreen.value=true
         }
     }
 }

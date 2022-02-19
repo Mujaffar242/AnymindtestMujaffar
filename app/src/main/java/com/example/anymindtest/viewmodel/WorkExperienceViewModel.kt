@@ -3,6 +3,7 @@ package com.example.anymindtest.viewmodel
 import android.app.Application
 import android.net.Uri
 import android.os.PatternMatcher
+import android.util.Log
 import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -19,34 +20,14 @@ import kotlinx.coroutines.withContext
 
 class WorkExperienceViewModel(application: Application):BaseViewModel(application) {
 
-   private val _workExperienceData=MutableLiveData<List<WorkExperienceModel>>()
-    val workExperienceData:LiveData<List<WorkExperienceModel>>
-    get() = _workExperienceData
-
-
     val database= getDatabase(application)
 
     val resumeDataRepository=ResumeDataRepository(database)
 
 
-
-    /*
-   * get list of data from room databse
-   * */
-    fun getWorkExperieceData()
-    {
-
-        viewModelScope.launch {
-            withContext(Dispatchers.IO)
-            {
-                _workExperienceData.postValue(resumeDataRepository.workExperienceList.value)
-
-            }
-        }
-    }
-
-
-
+   private val _workExperienceData=resumeDataRepository.workExperienceList
+    val workExperienceData:LiveData<List<WorkExperienceModel>>
+    get() = _workExperienceData
 
     fun onNextClick()
     {
