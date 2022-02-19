@@ -1,5 +1,6 @@
 package com.example.anymindtest.view.adapter
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
@@ -9,6 +10,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.WorkExperienceItemBinding
 import com.example.anymindtest.model.WorkExperienceModel
+import com.example.anymindtest.utils.EDIT_INFO
+import com.example.anymindtest.utils.PRINT_INFO
 
 
 /**
@@ -21,6 +24,7 @@ class ExperienceListAdapter() :
     //function on edit button click
     var editWorkExperience: ((Int) -> Unit)? = null
 
+    var pageType= EDIT_INFO
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): WorkExperienceViewHolder {
         return WorkExperienceViewHolder.from(parent)
@@ -37,6 +41,9 @@ class ExperienceListAdapter() :
 
             editWorkExperience?.invoke(getItem(position).id)
         }
+
+        if (pageType.equals(PRINT_INFO))
+            holder.viewDataBinding.edit.visibility= View.GONE
 
         holder.bind()
 

@@ -6,6 +6,7 @@
         <entry key="../../../../layout/custom_preview.xml" value="0.1" />
         <entry key="../../Android/Sdk/platforms/android-31/data/res/drawable/btn_plus.xml" value="0.104" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.15833333333333333" />
+        <entry key="app/src/main/res/layout/activity_print_resume.xml" value="0.2" />
         <entry key="app/src/main/res/layout/education_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_add_edit_education.xml" value="0.17028985507246377" />
         <entry key="app/src/main/res/layout/fragment_add_edit_experience.xml" value="0.25" />
@@ -13,13 +14,14 @@
         <entry key="app/src/main/res/layout/fragment_educational_details.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.17028985507246377" />
         <entry key="app/src/main/res/layout/fragment_peronal_info.xml" value="0.17028985507246377" />
-        <entry key="app/src/main/res/layout/fragment_personal_info.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_personal_info.xml" value="0.18" />
         <entry key="app/src/main/res/layout/fragment_projects.xml" value="0.14010416666666667" />
         <entry key="app/src/main/res/layout/fragment_resume.xml" value="0.16" />
         <entry key="app/src/main/res/layout/fragment_work_experience.xml" value="0.18" />
         <entry key="app/src/main/res/layout/project_item.xml" value="0.33" />
         <entry key="app/src/main/res/layout/work_experience_item.xml" value="0.17395833333333333" />
         <entry key="app/src/main/res/menu/add_menu.xml" value="0.17395833333333333" />
+        <entry key="app/src/main/res/menu/print_menu.xml" value="0.17395833333333333" />
       </map>
     </option>
   </component>

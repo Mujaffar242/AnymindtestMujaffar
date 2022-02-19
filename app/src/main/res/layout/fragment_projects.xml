@@ -26,7 +26,7 @@
         <androidx.appcompat.widget.AppCompatButton
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Next"
+            android:text="View Resume"
             android:onClick="@{()->projectViewModel.onNextClick()}"
             android:id="@+id/nextButton"
             app:layout_constraintEnd_toEndOf="parent"

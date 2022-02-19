@@ -32,12 +32,6 @@ class ProjectsViewModel(application: Application):BaseViewModel(application) {
 
     fun onNextClick()
     {
-           /* viewModelScope.launch {
-                withContext(Dispatchers.IO)
-                {
-                }
-            }
-            navigateToNextScreen.value=true*/
-
+        navigateToNextScreen.value=true
     }
 }

@@ -1,5 +1,6 @@
 package com.example.anymindtest.view.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.*
 import androidx.databinding.DataBindingUtil
@@ -10,6 +11,8 @@ import androidx.navigation.fragment.findNavController
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.FragmentEducationalDetailsBinding
 import com.example.anymindtest.databinding.FragmentProjectsBinding
+import com.example.anymindtest.utils.EDIT_INFO
+import com.example.anymindtest.view.activity.PrintResumeActivity
 import com.example.anymindtest.view.adapter.EducationListAdapter
 import com.example.anymindtest.view.adapter.ProjectListAdapter
 import com.example.anymindtest.viewmodel.EducationViewModel
@@ -50,6 +53,11 @@ class ProjectsFragment : Fragment() {
 
         viewModel.navigateToNextScreen.observe(this, Observer {
             // findNavController().popBackStack()
+            if (it)
+            {
+                activity?.startActivity(Intent(activity,PrintResumeActivity::class.java))
+                viewModel.resetNavigateToNextScreen()
+            }
         })
 
         adapter.editProject={

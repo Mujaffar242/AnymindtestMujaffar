@@ -41,7 +41,7 @@ class PersonalInfoViewModel(application: Application):BaseViewModel(application)
     * */
     fun saveUpdatePersonalInfo()
     {
-        val personalInfoModel=PersonalInfoModel(imagePath.value!!,email.value!!,mobile.value!!,address.value!!,careerObjective.value!!,yearOfExperience.value!!)
+        val personalInfoModel=PersonalInfoModel("",email.value!!,mobile.value!!,address.value!!,careerObjective.value!!,yearOfExperience.value!!)
 
         viewModelScope.launch {
             withContext(Dispatchers.IO)
@@ -87,12 +87,12 @@ class PersonalInfoViewModel(application: Application):BaseViewModel(application)
     fun isDataValid():Boolean{
         var isValid=true
 
-        if(imagePath.value==null)
+        /*if(imagePath.value==null)
         {
             errorString.value="Please select image"
             isValid=false
         }
-        else if(email.value.isNullOrEmpty())
+        else*/ if(email.value.isNullOrEmpty())
         {
             errorString.value="Please enter email"
             isValid=false
