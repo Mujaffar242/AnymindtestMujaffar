@@ -24,6 +24,10 @@ class ProjectsFragment : Fragment() {
     private val adapter by lazy { ProjectListAdapter() }
 
 
+    override fun onStart() {
+        super.onStart()
+        activity?.setTitle("Project details")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

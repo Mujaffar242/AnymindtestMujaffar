@@ -23,6 +23,11 @@ class WorkExperienceFragment : Fragment() {
     private val adapter by lazy { ExperienceListAdapter() }
 
 
+    override fun onStart() {
+        super.onStart()
+        activity?.setTitle("Work Experience")
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,7 +38,6 @@ class WorkExperienceFragment : Fragment() {
 
         setHasOptionsMenu(true)
 
-        activity?.setTitle("Work Experience")
 
         binding.recyerview.adapter=adapter
 

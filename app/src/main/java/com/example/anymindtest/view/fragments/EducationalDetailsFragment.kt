@@ -26,6 +26,10 @@ class EducationalDetailsFragment : Fragment() {
     private val adapter by lazy { EducationListAdapter() }
 
 
+    override fun onStart() {
+        super.onStart()
+        activity?.setTitle("Education Details")
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

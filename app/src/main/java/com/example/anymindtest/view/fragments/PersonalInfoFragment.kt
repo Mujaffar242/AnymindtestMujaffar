@@ -36,6 +36,10 @@ class PersonalInfoFragment : Fragment() {
 
     val PICK_IMAGE = 1
 
+    override fun onStart() {
+        super.onStart()
+        activity?.setTitle("Personal Info")
+    }
 
 
     override fun onCreateView(
@@ -49,7 +53,6 @@ class PersonalInfoFragment : Fragment() {
         viewModel.getPersonalInfoFromRoom()
 
         binding.personalInfoViewModel=viewModel
-
 
 
         viewModel.errorString.observe(this, Observer {
