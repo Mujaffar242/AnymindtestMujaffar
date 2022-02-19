@@ -53,6 +53,7 @@ class PersonalInfoFragment : Fragment() {
 
 
         viewModel.errorString.observe(this, Observer {
+            if(it!=null)
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
 

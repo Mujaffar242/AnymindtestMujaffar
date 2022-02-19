@@ -13,30 +13,13 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="fdf8031c-b2b2-44df-8e5e-f0795092332b" name="Default Changelist" comment="icon color changed">
+    <list default="true" id="fdf8031c-b2b2-44df-8e5e-f0795092332b" name="Default Changelist" comment="final submission">
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.2/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/database/Room.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/database/Room.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/EducationModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/EducationModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/PersonalInfoModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/PersonalInfoModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/ProjectModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/ProjectModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/WorkExperienceModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/model/WorkExperienceModel.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/utils/Constants.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/utils/Constants.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/utils/ImageFilePath.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/utils/bindingadapters.kt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/activity/MainActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/activity/MainActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/activity/PrintResumeActivity.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/activity/PrintResumeActivity.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/adapter/EducationListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/adapter/EducationListAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/adapter/ProjectListAdapter.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/adapter/ProjectListAdapter.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/AddEditEducationFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/AddEditEducationFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/AddEditExperienceFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/AddEditExperienceFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/AddEditProjectFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/AddEditProjectFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/EducationalDetailsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/EducationalDetailsFragment.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/PersonalInfoFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/PersonalInfoFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/ProjectsFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/ProjectsFragment.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/WorkExperienceFragment.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/view/fragments/WorkExperienceFragment.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/viewmodel/PersonalInfoViewModel.kt" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/anymindtest/viewmodel/PersonalInfoViewModel.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/res/layout/activity_print_resume.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_print_resume.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -271,7 +254,14 @@
       <option name="project" value="LOCAL" />
       <updated>1645267506665</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="final submission">
+      <created>1645273078142</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1645273078142</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -292,7 +282,8 @@
     <MESSAGE value="third commit" />
     <MESSAGE value="third commit1" />
     <MESSAGE value="icon color changed" />
-    <option name="LAST_COMMIT_MESSAGE" value="icon color changed" />
+    <MESSAGE value="final submission" />
+    <option name="LAST_COMMIT_MESSAGE" value="final submission" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

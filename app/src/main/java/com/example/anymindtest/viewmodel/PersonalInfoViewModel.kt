@@ -129,6 +129,9 @@ class PersonalInfoViewModel(application: Application):BaseViewModel(application)
             isValid=false
 
         }
+        else{
+            errorString.value=null
+        }
 
         return isValid
     }
