@@ -24,7 +24,6 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
 
     val endDate=MutableLiveData<String>()
 
-    val isCurrentRole=MutableLiveData<Boolean>()
 
     val database= getDatabase(application)
 
@@ -39,13 +38,14 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
     {
         val experienceModel=WorkExperienceModel(companyName.value!!,startDate.value!!,endDate.value!!)
 
-        experienceModel.id=workExperienceLiveData.value?.id!!
-
         viewModelScope.launch {
             withContext(Dispatchers.IO)
             {
                 if (workExperienceLiveData.value?.id!=null&&workExperienceLiveData.value?.id!!>0)
+                {
+                    experienceModel.id=workExperienceLiveData.value?.id!!
                     database.workExperienceDAO.update(experienceModel)
+                }
                 else
                     database.workExperienceDAO.insertSinglevalue(experienceModel)
             }
@@ -89,7 +89,7 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
             errorString.value="Please enter start date"
             isValid=false
         }
-        else if(isCurrentRole.value!=null&&!isCurrentRole.value!!&&endDate.value.isNullOrEmpty())
+        else if(endDate.value.isNullOrEmpty())
         {
             errorString.value="Please enter end date"
             isValid=false

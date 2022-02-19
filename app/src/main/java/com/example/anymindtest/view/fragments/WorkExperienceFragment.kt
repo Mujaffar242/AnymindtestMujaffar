@@ -44,7 +44,11 @@ class WorkExperienceFragment : Fragment() {
         })
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            findNavController().navigate(WorkExperienceFragmentDirections.actionWorkExperienceFragmentToEducationalDetailsFragment())
+            if(it)
+            {
+                findNavController().navigate(WorkExperienceFragmentDirections.actionWorkExperienceFragmentToEducationalDetailsFragment())
+                viewModel.resetNavigateToNextScreen()
+            }
         })
 
         adapter.editWorkExperience={

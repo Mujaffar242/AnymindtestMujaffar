@@ -31,11 +31,7 @@ class WorkExperienceViewModel(application: Application):BaseViewModel(applicatio
 
     fun onNextClick()
     {
-            viewModelScope.launch {
-                withContext(Dispatchers.IO)
-                {
-                }
-            }
+
             navigateToNextScreen.value=true
 
     }

@@ -47,7 +47,11 @@ class EducationalDetailsFragment : Fragment() {
         })
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            findNavController().navigate(EducationalDetailsFragmentDirections.actionEducationalDetailsFragmentToProjectsFragment())
+            if(it)
+            {
+                findNavController().navigate(EducationalDetailsFragmentDirections.actionEducationalDetailsFragmentToProjectsFragment())
+                viewModel.resetNavigateToNextScreen()
+            }
         })
 
         adapter.editEucation={
