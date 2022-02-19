@@ -8,14 +8,64 @@
             <LayoutPositions>
               <option name="myPositions">
                 <map>
+                  <entry key="addEditEducationFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-62760" />
+                            <option name="y" value="-2725" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="addEditExperienceFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-26496" />
-                            <option name="y" value="-2008" />
+                            <option name="x" value="-63223" />
+                            <option name="y" value="-3136" />
                           </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="addEditProjectFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-62330" />
+                            <option name="y" value="-2290" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
+                  <entry key="educationalDetailsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-63230" />
+                            <option name="y" value="-2735" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_educationalDetailsFragment_to_addEditEducationFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_educationalDetailsFragment_to_projectsFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
                         </option>
                       </LayoutPositions>
                     </value>
@@ -25,8 +75,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-45489" />
-                            <option name="y" value="-265" />
+                            <option name="x" value="-64081" />
+                            <option name="y" value="-2421" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -41,18 +91,44 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="projectsFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="-62760" />
+                            <option name="y" value="-2280" />
+                          </Point>
+                        </option>
+                        <option name="myPositions">
+                          <map>
+                            <entry key="action_projectsFragment_to_addEditProjectFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                          </map>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="workExperienceFragment">
                     <value>
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-35997" />
-                            <option name="y" value="-3635" />
+                            <option name="x" value="-63765" />
+                            <option name="y" value="-2921" />
                           </Point>
                         </option>
                         <option name="myPositions">
                           <map>
                             <entry key="action_workExperienceFragment_to_addEditExperienceFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="action_workExperienceFragment_to_educationalDetailsFragment">
                               <value>
                                 <LayoutPositions />
                               </value>

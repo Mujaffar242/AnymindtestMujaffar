@@ -10,6 +10,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.FragmentAddEditExperienceBinding
 import com.example.anymindtest.viewmodel.AddWorkExperienceViewModel
@@ -20,6 +21,9 @@ class AddEditExperienceFragment : Fragment() {
     private lateinit var binding: FragmentAddEditExperienceBinding
 
     private lateinit var viewModel: AddWorkExperienceViewModel
+
+    // get the arguments from previous fragment
+    private val args : AddEditExperienceFragmentArgs by navArgs()
 
 
     override fun onCreateView(
@@ -33,9 +37,15 @@ class AddEditExperienceFragment : Fragment() {
             false
         )
 
+
         viewModel = ViewModelProviders.of(this).get(AddWorkExperienceViewModel::class.java)
 
         binding.addworkExperienceViewModel = viewModel
+
+        if(args.itemId>0)
+        {
+            viewModel.getWorkExperienceData(args.itemId)
+        }
 
 
         viewModel.errorString.observe(this, Observer {
@@ -52,6 +62,8 @@ class AddEditExperienceFragment : Fragment() {
             viewModel.companyName.value = it.company
             viewModel.startDate.value = it.startDate
             viewModel.endDate.value = it.endDate
+
+            binding.addworkExperienceViewModel=viewModel
 
         })
 

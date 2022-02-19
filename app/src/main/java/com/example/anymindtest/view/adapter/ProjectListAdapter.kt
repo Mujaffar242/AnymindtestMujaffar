@@ -19,7 +19,7 @@ class ProjectListAdapter() :
     ListAdapter<ProjectModel, ProjectViewHolder>(ProjectDiffCallback()) {
 
     //function on edit button click
-    var editWorkExperience: ((Int) -> Unit)? = null
+    var editProject: ((Int) -> Unit)? = null
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ProjectViewHolder {
@@ -33,9 +33,9 @@ class ProjectListAdapter() :
         }
 
 
-        holder.viewDataBinding.root.setOnClickListener {
+        holder.viewDataBinding.edit.setOnClickListener {
 
-            editWorkExperience?.invoke(position)
+            editProject?.invoke(getItem(position).id)
         }
 
         holder.bind()
@@ -54,7 +54,7 @@ class ProjectViewHolder private constructor(val viewDataBinding: ProjectItemBind
     RecyclerView.ViewHolder(viewDataBinding.root) {
     companion object {
         @LayoutRes
-        val LAYOUT = R.layout.work_experience_item
+        val LAYOUT = R.layout.project_item
 
         public fun from(parent: ViewGroup): ProjectViewHolder {
             val withDataBinding: ProjectItemBinding = DataBindingUtil.inflate(

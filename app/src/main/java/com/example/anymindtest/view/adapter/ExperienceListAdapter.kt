@@ -33,9 +33,9 @@ class ExperienceListAdapter() :
         }
 
 
-        holder.viewDataBinding.root.setOnClickListener {
+        holder.viewDataBinding.edit.setOnClickListener {
 
-            editWorkExperience?.invoke(position)
+            editWorkExperience?.invoke(getItem(position).id)
         }
 
         holder.bind()

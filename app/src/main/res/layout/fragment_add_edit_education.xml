@@ -12,6 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
+        android:padding="10dp"
         tools:context=".view.fragments.AddEditEducationFragment">
 
         <androidx.appcompat.widget.LinearLayoutCompat
@@ -29,7 +30,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter class"
-                android:text="@{educationviewModel.className}"
+                android:text="@={educationviewModel.className}"
                 android:lines="1"
                 android:inputType="text" />
         </androidx.appcompat.widget.LinearLayoutCompat>
@@ -50,7 +51,7 @@
                 android:layout_height="wrap_content"
                 android:hint="Enter passing year"
                 android:lines="1"
-                android:text="@{educationviewModel.passingYear}"
+                android:text="@={educationviewModel.passingYear}"
                 android:inputType="text" />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -69,8 +70,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Enter Percentage/CGPA"
-                android:text="@{educationviewModel.percentage}"
-                android:inputType="phone" />
+                android:text="@={educationviewModel.percentage}"
+                android:inputType="number" />
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="Save"
+                android:onClick="@{()->educationviewModel.onNextClick()}"
+                />
         </androidx.appcompat.widget.LinearLayoutCompat>
 
 

@@ -39,11 +39,16 @@ class AddEducationViewModel(application: Application):BaseViewModel(application)
     {
         val educationModel=EducationModel(className.value!!,passingYear.value!!,percentage.value!!)
 
+
+
         viewModelScope.launch {
             withContext(Dispatchers.IO)
             {
                 if (educationModelLiveData.value?.id!=null&&educationModelLiveData.value?.id!!>0)
+                {
+                    educationModel.id=educationModelLiveData.value?.id!!
                     database.educationDAO.update(educationModel)
+                }
                 else
                     database.educationDAO.insertSinglevalue(educationModel)
             }

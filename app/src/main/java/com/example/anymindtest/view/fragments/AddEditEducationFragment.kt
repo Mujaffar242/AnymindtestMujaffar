@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.FragmentAddEditEducationBinding
 import com.example.anymindtest.databinding.FragmentAddEditExperienceBinding
@@ -23,6 +25,8 @@ class AddEditEducationFragment : Fragment() {
 
     private lateinit var viewModel: AddEducationViewModel
 
+    // get the arguments from previous fragment
+    private val args : AddEditExperienceFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -40,13 +44,16 @@ class AddEditEducationFragment : Fragment() {
         binding.educationviewModel = viewModel
 
 
+
+
         viewModel.errorString.observe(this, Observer {
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
 
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            //  findNavController().navigate(R.id.action_peronalInfoFragment_to_workExperienceFragment)
+              findNavController().popBackStack()
+
         })
 
         viewModel.educationModelLiveData.observe(this, Observer {
@@ -54,8 +61,14 @@ class AddEditEducationFragment : Fragment() {
             viewModel.className.value = it.className
             viewModel.passingYear.value = it.passingYear
             viewModel.percentage.value = it.percentage
+            binding.educationviewModel=viewModel
 
         })
+
+        if(args.itemId>0)
+        {
+            viewModel.getWorkEducationData(args.itemId)
+        }
 
 
         return binding.root

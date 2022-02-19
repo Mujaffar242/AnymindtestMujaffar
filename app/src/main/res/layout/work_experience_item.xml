@@ -32,7 +32,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/comapnyName"
             android:id="@+id/workDuration"
-            android:text="@{workExperienceModel.startDate + workExperienceModel.endDate}"
+            android:text="@{workExperienceModel.startDate +` to `+ workExperienceModel.endDate}"
             android:textSize="18sp" />
 
         <ImageView
@@ -40,6 +40,7 @@
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            android:id="@+id/edit"
             android:src="@android:drawable/ic_menu_edit" />
 
         <View

@@ -7,6 +7,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.FragmentWorkExperienceBinding
 import com.example.anymindtest.view.adapter.ExperienceListAdapter
@@ -20,7 +21,6 @@ class WorkExperienceFragment : Fragment() {
     private lateinit var viewModel: WorkExperienceViewModel
 
     private val adapter by lazy { ExperienceListAdapter() }
-
 
 
     override fun onCreateView(
@@ -44,9 +44,12 @@ class WorkExperienceFragment : Fragment() {
         })
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            findNavController().popBackStack()
+            findNavController().navigate(WorkExperienceFragmentDirections.actionWorkExperienceFragmentToEducationalDetailsFragment())
         })
 
+        adapter.editWorkExperience={
+            findNavController().navigate(WorkExperienceFragmentDirections.actionWorkExperienceFragmentToAddEditExperienceFragment(it))
+        }
 
 
         return binding.root
@@ -59,7 +62,7 @@ class WorkExperienceFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        findNavController().navigate(R.id.action_workExperienceFragment_to_addEditExperienceFragment)
+        findNavController().navigate(WorkExperienceFragmentDirections.actionWorkExperienceFragmentToAddEditExperienceFragment(0))
         return super.onOptionsItemSelected(item)
     }
 }

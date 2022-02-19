@@ -9,6 +9,8 @@ import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.fragment.navArgs
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.FragmentAddEditEducationBinding
 import com.example.anymindtest.databinding.FragmentAddEditProjectBinding
@@ -21,6 +23,8 @@ class AddEditProjectFragment : Fragment() {
 
     private lateinit var viewModel: AddProjectViewModel
 
+    // get the arguments from previous fragment
+    private val args : AddEditProjectFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -37,6 +41,11 @@ class AddEditProjectFragment : Fragment() {
 
         binding.projectModel = viewModel
 
+        if(args.itemId>0)
+        {
+            viewModel.getProjectData(args.itemId)
+        }
+
 
         viewModel.errorString.observe(this, Observer {
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
@@ -44,7 +53,7 @@ class AddEditProjectFragment : Fragment() {
 
 
         viewModel.navigateToNextScreen.observe(this, Observer {
-            //  findNavController().navigate(R.id.action_peronalInfoFragment_to_workExperienceFragment)
+            findNavController().popBackStack()
         })
 
         viewModel.projectModelLiveData.observe(this, Observer {
@@ -54,6 +63,7 @@ class AddEditProjectFragment : Fragment() {
             viewModel.role.value = it.role
             viewModel.teamSize.value=it.teamSize
             viewModel.technologyused.value=it.technologyUsed
+            binding.projectModel=viewModel
         })
 
 

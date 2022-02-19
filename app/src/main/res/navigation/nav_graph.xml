@@ -10,8 +10,8 @@
     <fragment
         android:id="@+id/peronalInfoFragment"
         android:name="com.example.anymindtest.view.fragments.PersonalInfoFragment"
-        android:label="fragment_peronal_info"
-        tools:layout="@layout/fragment_personal_info" >
+        tools:layout="@layout/fragment_personal_info"
+        >
 
         <action
             android:id="@+id/action_peronalInfoFragment_to_workExperienceFragment"
@@ -23,13 +23,56 @@
         android:label="WorkExperienceFragment" >
         <action
             android:id="@+id/action_workExperienceFragment_to_addEditExperienceFragment"
-            app:destination="@id/addEditExperienceFragment" />
+            app:destination="@id/addEditExperienceFragment"
+            />
+        <action
+            android:id="@+id/action_workExperienceFragment_to_educationalDetailsFragment"
+            app:destination="@id/educationalDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/addEditExperienceFragment"
         android:name="com.example.anymindtest.view.fragments.AddEditExperienceFragment"
         android:label="fragment_add_edit_experience"
-        tools:layout="@layout/fragment_add_edit_experience" />
+        tools:layout="@layout/fragment_add_edit_experience" >
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/educationalDetailsFragment"
+        android:name="com.example.anymindtest.view.fragments.EducationalDetailsFragment"
+        android:label="EducationalDetailsFragment" >
+        <action
+            android:id="@+id/action_educationalDetailsFragment_to_addEditEducationFragment"
+            app:destination="@id/addEditEducationFragment" />
+        <action
+            android:id="@+id/action_educationalDetailsFragment_to_projectsFragment"
+            app:destination="@id/projectsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditEducationFragment"
+        android:name="com.example.anymindtest.view.fragments.AddEditEducationFragment"
+        android:label="AddEditEducationFragment" >
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/projectsFragment"
+        android:name="com.example.anymindtest.view.fragments.ProjectsFragment"
+        android:label="ProjectsFragment" >
+        <action
+            android:id="@+id/action_projectsFragment_to_addEditProjectFragment"
+            app:destination="@id/addEditProjectFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addEditProjectFragment"
+        android:name="com.example.anymindtest.view.fragments.AddEditProjectFragment"
+        android:label="AddEditProjectFragment" >
+        <argument
+            android:name="item_id"
+            app:argType="integer" />
+    </fragment>
 
 
 </navigation>

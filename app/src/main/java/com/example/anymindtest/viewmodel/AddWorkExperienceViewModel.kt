@@ -39,6 +39,8 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
     {
         val experienceModel=WorkExperienceModel(companyName.value!!,startDate.value!!,endDate.value!!)
 
+        experienceModel.id=workExperienceLiveData.value?.id!!
+
         viewModelScope.launch {
             withContext(Dispatchers.IO)
             {
@@ -59,19 +61,13 @@ class AddWorkExperienceViewModel(application: Application):BaseViewModel(applica
     {
         viewModelScope.launch {
 
+            var data=null
             withContext(Dispatchers.IO)
             {
                 val data=database.workExperienceDAO.getSingleValue(id.toString())
-                withContext(Dispatchers.Main)
-                {
-                    if(data!=null)
-                    {
-                        workExperienceLiveData.value=data
-                    }
-                }
+                workExperienceLiveData.postValue(data!!)
 
             }
-
 
         }
     }

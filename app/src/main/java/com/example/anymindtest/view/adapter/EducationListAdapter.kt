@@ -33,9 +33,9 @@ class EducationListAdapter() :
         }
 
 
-        holder.viewDataBinding.root.setOnClickListener {
+        holder.viewDataBinding.edit.setOnClickListener {
 
-            editEucation?.invoke(position)
+            editEucation?.invoke(getItem(position).id)
         }
 
         holder.bind()

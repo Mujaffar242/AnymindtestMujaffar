@@ -47,7 +47,11 @@ class AddProjectViewModel(application: Application):BaseViewModel(application) {
             withContext(Dispatchers.IO)
             {
                 if (projectModelLiveData.value?.id!=null&&projectModelLiveData.value?.id!!>0)
+                {
+                    projectModel.id=projectModelLiveData.value?.id!!
                     database.projectDAO.update(projectModel)
+
+                }
                 else
                     database.projectDAO.insertSinglevalue(projectModel)
             }
