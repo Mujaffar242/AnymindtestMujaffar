@@ -43,6 +43,9 @@ class WorkExperienceFragment : Fragment() {
 
         binding.experienceViewModel=viewModel
 
+        /*
+      * observe work experience list data and add it into adaoter
+      * */
         viewModel.workExperienceData.observe(this, Observer {
             adapter.submitList(it)
         })
@@ -73,4 +76,6 @@ class WorkExperienceFragment : Fragment() {
         findNavController().navigate(WorkExperienceFragmentDirections.actionWorkExperienceFragmentToAddEditExperienceFragment(0))
         return super.onOptionsItemSelected(item)
     }
+
+
 }

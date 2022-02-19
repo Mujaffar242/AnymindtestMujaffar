@@ -16,7 +16,7 @@ import com.example.anymindtest.utils.PRINT_INFO
 
 
 /**
- * RecyclerView Adapter for show work experience list
+ * RecyclerView Adapter for show education list
  */
 
 class EducationListAdapter() :

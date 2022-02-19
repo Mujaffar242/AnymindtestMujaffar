@@ -41,6 +41,10 @@ class AddEditProjectFragment : Fragment() {
 
         binding.projectModel = viewModel
 
+        /*
+        * check if id is not zero from previous page
+        * and load data from room
+        * */
         if(args.itemId>0)
         {
             viewModel.getProjectData(args.itemId)
@@ -56,6 +60,9 @@ class AddEditProjectFragment : Fragment() {
             findNavController().popBackStack()
         })
 
+        /*
+       * show info from room database if available for edit
+       * */
         viewModel.projectModelLiveData.observe(this, Observer {
 
             viewModel.projectName.value = it.projectName

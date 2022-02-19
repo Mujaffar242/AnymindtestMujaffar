@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import androidx.navigation.ui.NavigationUI
 import com.example.anymindtest.R
 import com.example.anymindtest.databinding.FragmentAddEditEducationBinding
 import com.example.anymindtest.databinding.FragmentAddEditExperienceBinding
@@ -44,18 +45,25 @@ class AddEditEducationFragment : Fragment() {
         binding.educationviewModel = viewModel
 
 
-
-
+        /*
+        * for show validation errors
+        * */
         viewModel.errorString.observe(this, Observer {
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
 
 
+        /*
+        * for navigate to next screen
+        * */
         viewModel.navigateToNextScreen.observe(this, Observer {
               findNavController().popBackStack()
 
         })
 
+        /*
+        * show info from room database if available for edit
+        * */
         viewModel.educationModelLiveData.observe(this, Observer {
 
             viewModel.className.value = it.className
@@ -65,6 +73,11 @@ class AddEditEducationFragment : Fragment() {
 
         })
 
+
+        /*
+        * check if id is not zero from previous page
+        * and load data from room
+        * */
         if(args.itemId>0)
         {
             viewModel.getWorkEducationData(args.itemId)

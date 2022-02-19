@@ -37,6 +37,9 @@ class PrintResumeActivity : AppCompatActivity() {
 
         setTitle("View Resume")
 
+        /*
+        * set page type with each adapter to hide edit button
+        * */
         experienceListAdapter.pageType= PRINT_INFO
         educationListAdapter.pageType= PRINT_INFO
         projectListAdapter.pageType= PRINT_INFO
@@ -44,6 +47,7 @@ class PrintResumeActivity : AppCompatActivity() {
 
         binding=DataBindingUtil.setContentView(this,R.layout.activity_print_resume)
 
+        //init viewmodels
         personalInfoViewModel=ViewModelProviders.of(this).get(PersonalInfoViewModel::class.java)
         workExperienceViewModel = ViewModelProviders.of(this).get(WorkExperienceViewModel::class.java)
         educationViewModel= ViewModelProviders.of(this).get(EducationViewModel::class.java)
@@ -52,6 +56,7 @@ class PrintResumeActivity : AppCompatActivity() {
 
         //binding.personalInfoViewModel=personalInfoViewModel
 
+        //set adapters to lists
         binding.expericeList.adapter=experienceListAdapter
         binding.eductionList.adapter=educationListAdapter
         binding.projectsList.adapter=projectListAdapter
@@ -88,7 +93,7 @@ class PrintResumeActivity : AppCompatActivity() {
 
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+    /*override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         val inflater = menuInflater
         inflater.inflate(R.menu.print_menu, menu)
         return true
@@ -96,5 +101,5 @@ class PrintResumeActivity : AppCompatActivity() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return super.onOptionsItemSelected(item)
-    }
+    }*/
 }

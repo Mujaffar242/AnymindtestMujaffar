@@ -42,17 +42,27 @@ class AddEditExperienceFragment : Fragment() {
 
         binding.addworkExperienceViewModel = viewModel
 
+        /*
+        * check if id is not zero from previous page
+        * and load data from room
+        * */
         if(args.itemId>0)
         {
             viewModel.getWorkExperienceData(args.itemId)
         }
 
 
+        /*
+        * for show validation errors
+        * */
         viewModel.errorString.observe(this, Observer {
             Toast.makeText(activity, it, Toast.LENGTH_LONG).show()
         })
 
 
+        /*
+       * for navigate to next screen
+       * */
         viewModel.navigateToNextScreen.observe(this, Observer {
               findNavController().popBackStack()
         })

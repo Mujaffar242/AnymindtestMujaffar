@@ -36,32 +36,38 @@ class ProjectsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= DataBindingUtil.inflate(inflater, R.layout.fragment_projects,container,false)
+        binding = DataBindingUtil.inflate(inflater, R.layout.fragment_projects, container, false)
 
-        viewModel= ViewModelProviders.of(this).get(ProjectsViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(ProjectsViewModel::class.java)
 
         setHasOptionsMenu(true)
 
 
-        binding.recyerview.adapter=adapter
+        binding.recyerview.adapter = adapter
 
-        binding.projectViewModel=viewModel
+        binding.projectViewModel = viewModel
 
+        /*
+        * observe project list data and add it into adaoter
+        * */
         viewModel.projectsData.observe(this, Observer {
             adapter.submitList(it)
         })
 
         viewModel.navigateToNextScreen.observe(this, Observer {
             // findNavController().popBackStack()
-            if (it)
-            {
-                activity?.startActivity(Intent(activity,PrintResumeActivity::class.java))
+            if (it) {
+                activity?.startActivity(Intent(activity, PrintResumeActivity::class.java))
                 viewModel.resetNavigateToNextScreen()
             }
         })
 
-        adapter.editProject={
-            findNavController().navigate(ProjectsFragmentDirections.actionProjectsFragmentToAddEditProjectFragment(it))
+        adapter.editProject = {
+            findNavController().navigate(
+                ProjectsFragmentDirections.actionProjectsFragmentToAddEditProjectFragment(
+                    it
+                )
+            )
         }
 
 
@@ -71,11 +77,15 @@ class ProjectsFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.add_menu,menu)
+        inflater.inflate(R.menu.add_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        findNavController().navigate(ProjectsFragmentDirections.actionProjectsFragmentToAddEditProjectFragment(0))
+        findNavController().navigate(
+            ProjectsFragmentDirections.actionProjectsFragmentToAddEditProjectFragment(
+                0
+            )
+        )
         return super.onOptionsItemSelected(item)
     }
 }

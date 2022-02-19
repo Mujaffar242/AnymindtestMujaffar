@@ -35,31 +35,43 @@ class EducationalDetailsFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding= DataBindingUtil.inflate(inflater, R.layout.fragment_educational_details,container,false)
 
-        viewModel= ViewModelProviders.of(this).get(EducationViewModel::class.java)
+
+        binding = DataBindingUtil.inflate(
+            inflater,
+            R.layout.fragment_educational_details,
+            container,
+            false
+        )
+        viewModel = ViewModelProviders.of(this).get(EducationViewModel::class.java)
 
         setHasOptionsMenu(true)
 
 
-        binding.recyerview.adapter=adapter
+        binding.recyerview.adapter = adapter
+        binding.educationviewModel = viewModel
 
-        binding.educationviewModel=viewModel
 
         viewModel.educationData.observe(this, Observer {
             adapter.submitList(it)
         })
 
+
         viewModel.navigateToNextScreen.observe(this, Observer {
-            if(it)
-            {
+            if (it) {
                 findNavController().navigate(EducationalDetailsFragmentDirections.actionEducationalDetailsFragmentToProjectsFragment())
                 viewModel.resetNavigateToNextScreen()
             }
         })
 
-        adapter.editEucation={
-            findNavController().navigate(EducationalDetailsFragmentDirections.actionEducationalDetailsFragmentToAddEditEducationFragment(it))
+
+
+        adapter.editEucation = {
+            findNavController().navigate(
+                EducationalDetailsFragmentDirections.actionEducationalDetailsFragmentToAddEditEducationFragment(
+                    it
+                )
+            )
         }
 
 
@@ -69,11 +81,15 @@ class EducationalDetailsFragment : Fragment() {
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         super.onCreateOptionsMenu(menu, inflater)
-        inflater.inflate(R.menu.add_menu,menu)
+        inflater.inflate(R.menu.add_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        findNavController().navigate(EducationalDetailsFragmentDirections.actionEducationalDetailsFragmentToAddEditEducationFragment(0))
+        findNavController().navigate(
+            EducationalDetailsFragmentDirections.actionEducationalDetailsFragmentToAddEditEducationFragment(
+                0
+            )
+        )
         return super.onOptionsItemSelected(item)
     }
 }

@@ -9,6 +9,10 @@ import com.example.anymindtest.model.PersonalInfoModel
 import com.example.anymindtest.model.ProjectModel
 import com.example.anymindtest.model.WorkExperienceModel
 
+
+/*
+* return instance of room databse
+* */
 @Database(entities = [PersonalInfoModel::class,EducationModel::class,WorkExperienceModel::class,ProjectModel::class], version = 1,exportSchema = false)
 abstract class ResumeDataDataBase : RoomDatabase() {
     abstract val workExperienceDAO:WorkExperienceDAO
